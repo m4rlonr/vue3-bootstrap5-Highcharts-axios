@@ -1,6 +1,11 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+// import { RouterLink } from 'vue-router'
 
+const message = '';
+
+function searchCity() {
+  console.log(this.message)
+}
 </script>
 
 <template>
@@ -8,13 +13,11 @@ import { RouterLink } from 'vue-router'
 
 
     <nav class="navbar">
-      <a class="navbar-brand" href="#">
-        <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="30" height="30" /> -->
-        <span class="vue-text">V</span>ue + <span class="bootstrap-text">B</span>ootstrap 5</a>
-
-      <div class="navbar-nav">
-        <RouterLink class="link-nav" to="/">Home</RouterLink>
-        <RouterLink class="link-nav" to="/about">About</RouterLink>
+      <div class="input-group">
+        <input type="text" class="form-control" v-model="message" placeholder="Nome da cidade" aria-label="Nome da cidade"
+          aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" @click="searchCity()" type="button"
+          id="button-addon2">Pesquisar</button>
       </div>
     </nav>
 
@@ -30,6 +33,11 @@ header {
 .navbar {
   display: flex;
   flex-direction: column;
+  color: white;
+}
+
+.input-group {
+  max-width: 70%;
 }
 
 .navbar-nav {
